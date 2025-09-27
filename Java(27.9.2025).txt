@@ -1,4 +1,4 @@
-1.
+1.Student information:
 
 class Student{
     String name;
@@ -23,5 +23,257 @@ class Main {
         s2.marks=98;
         s1.display();
         s2.display();
+    }
+}
+
+2.Bank account:
+
+import java.util.Scanner;
+
+class BankAccount {
+    long accno;
+    String name;
+    float balance;
+
+    Scanner sc = new Scanner(System.in);
+    void deposit() {
+        System.out.print("Enter the deposit amount: ");
+        float deposit = sc.nextFloat(); 
+        balance = balance + deposit;
+        System.out.println("Balance after deposit: " + balance);
+    }
+
+    void withdraw() {
+        System.out.print("Enter the withdrawal amount: ");
+        float w = sc.nextFloat(); // taking input
+
+        if (w > balance) {
+            System.out.println("Insufficient balance! Transaction failed.");
+        } else {
+            balance = balance - w;
+            System.out.println("Balance after withdrawal: " + balance);
+        }
+    }
+
+    void dispBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
+
+    void displayAccount() {
+        System.out.println("Account No: " + accno);
+        System.out.println("Name: " + name);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        BankAccount b1 = new BankAccount();
+        System.out.print("Enter first account number: ");
+        b1.accno = sc.nextLong();
+        sc.nextLine();
+        System.out.print("Enter account holder name: ");
+        b1.name = sc.nextLine();
+        b1.balance = 1000; 
+        BankAccount b2 = new BankAccount();
+        System.out.print("Enter second account number: ");
+        b2.accno = sc.nextLong();
+        sc.nextLine(); 
+        System.out.print("Enter account holder name: ");
+        b2.name = sc.nextLine();
+        b2.balance = 1000; 
+
+        System.out.println("\n--- Performing transactions for Account 1 ---");
+        b1.deposit();
+        b1.withdraw();
+        b1.dispBalance();
+
+        System.out.println("\n--- Performing transactions for Account 2 ---");
+        b2.deposit();
+        b2.withdraw();
+        b2.dispBalance();
+
+        System.out.println("\n--- Final Account Details ---");
+        b1.displayAccount();
+        System.out.println("----------------------");
+        b2.displayAccount();
+
+        sc.close();
+    }
+}
+
+3.Inheritance Vehicle:
+
+class Vehicle {
+    String brand;
+
+    // Method to start the vehicle
+    void start() {
+        System.out.println(brand + " is starting...");
+    }
+}
+
+class Car extends Vehicle {
+    String model;
+
+    // Method to display details of the car
+    void displayDetails() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating Car object
+        Car c = new Car();
+        c.brand = "Mercedes";  // Setting brand
+        c.model = "Benz";      // Setting model
+
+        // Calling methods
+        c.start();
+        c.displayDetails();
+    }
+}
+4.Employee hierarchy:
+
+class Employee {
+    String name;
+    float salary;
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+    }
+}
+class Manager extends Employee {
+    String department;
+    void display() {
+        super.display(); 
+        System.out.println("Department: " + department);
+    }
+}
+class Developer extends Employee {
+    String programmingLanguage;
+    void display() {
+        super.display(); 
+        System.out.println("Programming Language: " + programmingLanguage);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Manager m = new Manager();
+        m.name = "Madhu";
+        m.salary = 35000;
+        m.department = "Sales";
+        Developer d = new Developer();
+        d.name = "Shree";
+        d.salary = 25000;
+        d.programmingLanguage = "Java";
+        System.out.println("Manager Details:");
+        m.display();
+
+        System.out.println("Developer Details:");
+        d.display();
+    }
+}
+ 
+5.Animal Hierarchy:
+
+class Animal {
+    void eat() {
+        System.out.println("This animal eats");
+    }
+}
+
+class Mammal extends Animal {
+    void walk() {
+        System.out.println("This animal walks");
+    }
+}
+
+class Dog extends Mammal {
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        Dog d = new Dog();  
+        d.eat();   
+        d.walk(); 
+        d.bark();  
+    }
+}
+
+6.Shape:
+
+
+import java.util.Scanner;
+class Shape {
+    void Area() {
+        System.out.println("Area of shape is undefined.");
+    }
+}
+class Circle extends Shape {
+    float radius;
+
+    Circle(Scanner scanner) {
+        System.out.print("Enter the radius of the circle: ");
+        radius = scanner.nextFloat();
+    }
+
+    void Area() {
+        double area = 3.14 * radius * radius;
+        System.out.println("Area of Circle: " + area);
+    }
+}
+class Rectangle extends Shape {
+    float length, width;
+
+    Rectangle(Scanner scanner) {
+        System.out.print("Enter the length of the rectangle: ");
+        length = scanner.nextFloat();
+        System.out.print("Enter the width of the rectangle: ");
+        width = scanner.nextFloat();
+    }
+
+    void Area() {
+        float area = length * width;
+        System.out.println("Area of Rectangle: " + area);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Circle c = new Circle(scanner);
+        c.Area();
+        Rectangle r = new Rectangle(scanner);
+        r.Area();
+        scanner.close();
+    }
+}
+
+7.Person:
+
+
+class Person {
+    Person() {
+        System.out.println("Person created");
+    }
+}
+
+class Student extends Person {
+    Student() {
+        super(); 
+        System.out.println("Student created");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student();
     }
 }
