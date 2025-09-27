@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String []args){
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter a number: ");
+       int n=sc.nextInt();
+       long fact=1;
+       for(int i=1;i<=n;i++){
+           fact*=i;
+       }
+       System.out.println("Factorial of "+n+" is: "+fact);
+    }
+}
+
+public class Factorial{
+
+
+//FACTORIAL:
+
+
+public class Recursion{
+    public int Factorial(int n){
+       if(n==0 || n==1){
+           return 1;
+       }else{
+           return n*Factorial(n-1);
+       }
+    }
+    public static void main(String[] args) {
+         Recursion k=new Recursion();
+         System.out.println("Factorial: "+k.Factorial(10));
+     
+    }
+}

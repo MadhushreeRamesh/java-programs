@@ -1,0 +1,157 @@
+// STRING FUNCTIONS: 
+
+class Main {
+    public static void main(String[] args) {
+        String a="Shree2007";
+        String b="Madhushree";
+        System.out.println(a);
+        System.out.println(a.length());
+        System.out.println(a.toUpperCase());
+        System.out.println(a.toLowerCase());
+        System.out.println(a.substring(1,4));
+        System.out.println(a==b);
+        
+    }
+}
+
+//STRING BUFFER
+
+class Main {
+    public static void main(String[] args) {
+        StringBuffer a=new StringBuffer("JAVA");
+        a.append("LANGUAGE");
+        System.out.println("AFTER APPENDING: "+a);
+        a.replace(0,4,"C++");
+        System.out.println("AFTER REPLACING: "+a);
+        a.delete(0,3);
+        System.out.println("AFTER DELETING : "+a);
+        a.reverse();
+        System.out.println(a);
+        
+    }
+}
+
+//REVERSING A STRING:
+
+
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner a=new Scanner(System.in);
+        System.out.println("Enter the string: ");
+        String m=a.nextLine();
+        StringBuffer str=new StringBuffer(m);
+        str.reverse();
+        System.out.println("AFTER REVERSING: "+str);
+        a.close();
+    }
+    }
+
+//PALINDROME:
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner a = new Scanner(System.in);
+        System.out.println("Enter the string: ");
+        String m = a.nextLine();
+
+        StringBuffer str = new StringBuffer(m);
+        str.reverse();
+
+        StringBuffer str1 = new StringBuffer(m);
+
+        System.out.println("GIVEN STRING: " + str1);
+        System.out.println("REVERSED STRING: " + str);
+
+        if (str.toString().equals(str1.toString())) {
+            System.out.println("PALINDROME");
+        } else {
+            System.out.println("NOT A PALINDROME");
+        }
+
+        a.close();
+    }
+}
+
+
+//  DUPLICATE  VALUES:
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the string: ");
+        String input = sc.nextLine();
+
+        StringBuilder result = new StringBuilder();
+        boolean[] seen = new boolean[256]; 
+
+        for (char ch : input.toCharArray()) {
+            if (!seen[ch]) {
+                seen[ch] = true;
+                result.append(ch);
+            }
+        }
+
+        System.out.println("String after removing duplicates: " + result.toString());
+        sc.close();
+    }
+}
+
+
+// COUNT VOWELS IN STRING:
+
+import java.util.Scanner;
+public class VowelCounter {
+    public static int countVowels(String input) {
+        int count = 0;
+        String vowels = "aeiouAEIOU";
+
+        for (int i = 0; i < input.length(); i++) {
+            if (vowels.indexOf(input.charAt(i)) != -1) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner m=new Scanner(System.in);
+        System.out.println("Enter a text: ");
+        String text =m.nextLine();
+        int vowelCount = countVowels(text);
+        System.out.println("Number of vowels: " + vowelCount);
+    }
+}
+
+// LARGEST WORD IN A SENTENCE:
+
+import java.util.Scanner;
+public class LargestWordFinder {
+    public static String findLargestWord(String sentence) {
+        String[] words = sentence.split("\\s+");
+        String largestWord = "";
+
+        for (String word : words) {
+            if (word.length() > largestWord.length()) {
+                largestWord = word;
+            }
+        }
+
+        return largestWord;
+    }
+
+    public static void main(String[] args) {
+        Scanner m=new Scanner(System.in);
+        System.out.println("Enter a text: ");
+        String sentence = m.nextLine();
+        String largest = findLargestWord(sentence);
+        System.out.println("Largest word: " + largest);
+    }
+}
+
+

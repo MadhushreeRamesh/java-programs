@@ -1,0 +1,197 @@
+public class Solution{
+    public void greet(){
+        System.out.println("Hello");
+    }
+    public static void main(String[] args) {
+        Solution s=new Solution();
+        s.greet();
+    }
+}
+
+
+//return type in java:
+
+public class Solution{
+    public float add(float a,float b){//function definition
+        return(a+b);
+    }
+    public static void main(String[] args) {
+        Solution s=new Solution();//object creation
+        int r=s.add(19.5f,20.0f);
+        System.out.println("sum: "+r);//function call
+    }
+}
+
+public class Solution{
+    public int add(int a,int b){//function definition
+        return(a+b);
+    }
+    public static void main(String[] args) {
+        Solution s=new Solution();//object creation
+        int r=s.add(19,20);//function call
+        System.out.println("Sum: "+r);
+    }
+}
+
+//USER DEFINED FUNCTION:
+
+public class Solution{
+ public void display(){
+     System.out.println("Hello");
+ }
+ public static void main(String []args){
+     Solution s=new Solution();
+     s.display();
+ }
+ }
+
+//BUILT IN FUNCTION:
+
+public class Main{
+ public static void main(String []args){
+     String s="MADHU";
+     System.out.println("Length; "+s.length());
+     System.out.println("Square root: "+Math.sqrt(16));
+ }
+ }
+
+//PRIME NUMBER:
+
+import java.util.Scanner;
+public class PrimeChecker {
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false; 
+            }
+        }
+        return true; 
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        if (isPrime(number)) {
+            System.out.println(number + " is a prime number.");
+        } else {
+            System.out.println(number + " is not a prime number.");
+        }
+
+        scanner.close();
+    }
+}
+
+import java.util.Scanner;
+
+public class Trainticket {
+    public static void main(String[] args) {
+        Scanner m = new Scanner(System.in);
+        System.out.println("1. Ticket Booking\n2. Ticket Cancellation");
+        int choice = m.nextInt();
+        m.nextLine(); // Consume the leftover newline
+
+        if (choice == 1) {
+            System.out.print("Enter your departure place: ");
+            String a = m.nextLine();
+
+            System.out.print("Enter destination: ");
+            String b = m.nextLine();
+
+            System.out.print("Enter number of tickets: ");
+            int s = m.nextInt();
+
+            int cost = s * 45;
+            System.out.println("Cost: " + cost);
+        } else {
+            System.out.println("PROCESS REQUESTING....");
+
+            System.out.print("Enter the ticket number: ");
+            long z = m.nextLong(); // Use nextLong() instead of nextDouble()
+
+            System.out.print("Enter the number of tickets booked: ");
+            int c = m.nextInt();
+
+            int balance = c * 45;
+            System.out.println("REFUND OF RUPEES " + balance + " WILL BE PROVIDED WITHIN 12 BUSINESS DAYS");
+        }
+
+        m.close();
+    }
+}
+// TICKET BOOKING:
+
+import java.util.Scanner;
+
+public class TrainTicket {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("1. Ticket Booking");
+        System.out.println("2. Ticket Cancellation");
+        System.out.print("Enter your choice: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        if (choice == 1) {
+            // Booking section
+            System.out.print("Enter your departure place: ");
+            String departure = scanner.nextLine();
+
+            System.out.print("Enter destination: ");
+            String destination = scanner.nextLine();
+
+            System.out.print("Enter your name: ");
+            String name = scanner.nextLine();
+
+            System.out.print("Enter number of tickets: ");
+            int totalTickets = scanner.nextInt();
+
+            System.out.print("Enter your contact number: ");
+            long contactNumber = scanner.nextLong();
+
+            System.out.print("Enter the number of adults: ");
+            int numAdults = scanner.nextInt();
+
+            System.out.print("Enter the number of children: ");
+            int numChildren = scanner.nextInt();
+
+            System.out.print("Enter the number of disabled people: ");
+            int numDisabled = scanner.nextInt();
+
+            int cost = numAdults * 100 + numChildren * 50 + numDisabled * 30;
+            System.out.println("Total Cost: ₹" + cost);
+
+            System.out.println("Do you want to confirm the booking?");
+            System.out.println("1. Yes\n2. No");
+            int confirm = scanner.nextInt();
+
+            if (confirm == 1) {
+                System.out.println("Booking Confirmed!");
+                System.out.println("Thank you, " + name + ". Safe travels from " + departure + " to " + destination + ".");
+            } else {
+                System.out.println("Booking Cancelled.");
+            }
+
+        } else if (choice == 2) {
+            // Cancellation section
+            System.out.println("Processing cancellation...");
+
+            System.out.print("Enter the ticket number: ");
+            long ticketNumber = scanner.nextLong();
+
+            System.out.print("Enter the number of tickets booked: ");
+            int bookedTickets = scanner.nextInt();
+
+            int refund = bookedTickets * 45;
+            System.out.println("A refund of ₹" + refund + " will be processed within 12 business days.");
+        } else {
+            System.out.println("Invalid choice. Please restart the program.");
+        }
+
+        scanner.close();
+    }
+}

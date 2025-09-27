@@ -1,0 +1,17 @@
+class Main {
+    public static void main(String[] args) {
+        String  num[]={"MADHU","VYSHNAVI","KRUBASHINI","NARESH"};
+        for (String n:num){
+            System.out.println(n);
+        }
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        int num[]={2,4,6,8};
+        for (int n:num){
+            System.out.println(n);
+        }
+    }
+}
