@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the size: ");
+        int size = s.nextInt();
+        
+        // Getting the array
+        System.out.println("Enter the array element: ");
+        int arr[] = new int[size];
+        for(int i = 0; i < size; i++) {
+            arr[i] = s.nextInt();
+        }
+        
+        System.out.println("Original array:");
+        for(int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        
+        // Non-zero to front
+        int nonZeroIndex = 0;
+        for(int i = 0; i < size; i++) {
+            if(arr[i] != 0) {
+                arr[nonZeroIndex] = arr[i];
+                nonZeroIndex++;
+            }
+        }
+        
+        //  remaining positions with zeros
+        for(int i = nonZeroIndex; i < size; i++) {
+            arr[i] = 0;
+        }
+        
+        System.out.println("\nArray after moving zeros to end:");
+        for(int i = 0; i < size; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        
+        s.close();
+    }
+}
