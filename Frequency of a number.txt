@@ -1,0 +1,35 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the size: ");
+        int size = s.nextInt();
+        
+        // Getting the array
+        System.out.println("Enter the array element: ");
+        int arr[] = new int[size];
+        for(int i = 0; i < size; i++) {
+            arr[i] = s.nextInt();
+        }
+        
+        System.out.println("Array elements");
+        for(int i = 0; i < size; i++) {
+            System.out.println(" " + arr[i]);
+        }
+        
+        // Frequency - Fixed version
+        for(int i = 0; i < size; i++) {
+            int current = arr[i];
+            int count = 0;
+            
+            // Count occurrences of current element
+            for(int j = 0; j < size; j++) {
+                if(arr[j] == current) {
+                    count++;
+                }
+            }
+            
+            System.out.println("Number " + current + " appears " + count + " time(s)");
+        }
+    }
+}
